@@ -4,6 +4,7 @@ import TechItem from "./TechItem";
 
 class TechList extends Component {
   // static defaultProps = {tech: 'Tech'}; example of use
+  // static propTypes = { tech: PropTypes.string.isRequired };
 
   state = {
     techs: ["Node.js", "ReactJS", "React Native"],
@@ -35,7 +36,7 @@ class TechList extends Component {
       <>
         <h1>{this.state.newTech}</h1>
         <ul>
-          <TechItem />
+          <TechItem onDelete={() => {}} />
           {this.state.techs.map(tech => (
             <TechItem
               key={tech}
