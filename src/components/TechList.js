@@ -7,9 +7,37 @@ class TechList extends Component {
   // static propTypes = { tech: PropTypes.string.isRequired };
 
   state = {
-    techs: ["Node.js", "ReactJS", "React Native"],
+    techs: [],
     newTech: ""
   };
+
+  /*
+    Most used life-cycle methods:
+    componentDidMount,
+    componentDidUpdate,
+    componentWillUnmount
+  */
+
+  // when a component appears on screen
+  componentDidMount() {
+    const techs = localStorage.getItem("techs");
+
+    if (techs) {
+      this.setState({ techs: JSON.parse(techs) });
+    }
+  }
+
+  // when a component state or prop is changed
+  componentDidUpdate(prevProps, prevState) {
+    // this.props, this.state (current values)
+
+    if (this.state.techs !== prevState.techs) {
+      localStorage.setItem("techs", JSON.stringify(this.state.techs));
+    }
+  }
+
+  // When a component is removed
+  componentWillUnmount() {}
 
   handleInputChange = e => {
     this.setState({
