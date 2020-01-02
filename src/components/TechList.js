@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import TechItem from "./TechItem";
 
 class TechList extends Component {
+  // static defaultProps = {tech: 'Tech'}; example of use
+
   state = {
     techs: ["Node.js", "ReactJS", "React Native"],
     newTech: ""
@@ -33,6 +35,7 @@ class TechList extends Component {
       <>
         <h1>{this.state.newTech}</h1>
         <ul>
+          <TechItem />
           {this.state.techs.map(tech => (
             <TechItem
               key={tech}
