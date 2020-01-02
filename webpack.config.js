@@ -28,6 +28,14 @@ module.exports = {
             loader: "css-loader" //handle imports inside css files
           }
         ]
+      },
+      {
+        test: /.*\.(gif|png|jpe?g)$/i,
+        use: [
+          {
+            loader: "file-loader" //load image files
+          }
+        ]
       }
     ]
   }
